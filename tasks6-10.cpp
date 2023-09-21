@@ -19,6 +19,13 @@ int itc_min_num(long long number)
 
 int itc_rev_num(long long number)
 {
+    int multiplier = 1;
+
+    if (number < 0) {
+        multiplier *= -1;
+        number *= -1;
+    }
+    
     long long reversedNumber = 0;
 
     while(number > 0)
@@ -28,11 +35,15 @@ int itc_rev_num(long long number)
         reversedNumber += lastDigit;
         number /= 10;
     }
-    return (int)reversedNumber;
+    return (int)reversedNumber * multiplier;
 }
 
 int itc_null_count(long long number)
 {
+    if (number < 0) {
+        number *= -1;
+    }
+    
     int answer = 0;
 
     while(number > 0)
@@ -48,6 +59,10 @@ int itc_null_count(long long number)
 
 bool itc_mirror_num(long long number)
 {
+    if (number < 0) {
+        number *= -1;
+    }
+    
     long long reversedNumber = 0;
     long long startNumber = number;
 
