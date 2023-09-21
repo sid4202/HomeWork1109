@@ -10,6 +10,9 @@ void itc_num_print(int number)
 
 int itc_len_num(long long number)
 {
+    if (number < 0)
+        number *= -1;
+            
     int answer = 0;
     while(number > 0)
     {
@@ -21,6 +24,9 @@ int itc_len_num(long long number)
 
 int itc_sum_num(long long number)
 {
+    if (number < 0)
+        number *= -1;
+    
     int answer = 0;
     while(number > 0)
     {
@@ -32,6 +38,9 @@ int itc_sum_num(long long number)
 
 long long itc_multi_num(long long number)
 {
+    if (number < 0)
+        number *= -1;
+    
     int answer = 1;
     while(number > 0)
     {
@@ -43,6 +52,9 @@ long long itc_multi_num(long long number)
 
 int itc_max_num(long long number)
 {
+    if (number < 0)
+        number *= -1;
+    
     int answer = number % 10;
     while(number > 0)
     {
