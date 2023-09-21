@@ -3,6 +3,12 @@
 
 int itc_rev_oct_num(long long number)
 {
+    int multiplier = 1;
+
+    if (number < 0) {
+        multiplier *= -1;
+        number *= -1;
+    }
     long long pOf8 = 1;
     int decimalNumber = 0;
     while (number > 0)
@@ -11,11 +17,18 @@ int itc_rev_oct_num(long long number)
         number /= 10;
         pOf8 *= 8;
     }
-    return decimalNumber;
+    return decimalNumber * multipier;
 }
 
 int itc_covert_num(long long number, int ss)
 {
+    int multiplier = 1;
+
+    if (number < 0) {
+        multiplier *= -1;
+        number *= -1;
+    }
+    
     long long ssNumber = 1;
     while(number > 0)
     {
@@ -33,11 +46,18 @@ int itc_covert_num(long long number, int ss)
         reversedNumber += lastDigit;
         ssNumber /= 10;
     }
-    return reversedNumber / 10;
+    return (reversedNumber / 10) * multiplier;
 }
 
 int itc_rev_covert_num(long long number, int ss)
 {
+    int multiplier = 1;
+
+    if (number < 0) {
+        multiplier *= -1;
+        number *= -1;
+    }
+    
     long long pOfss = 1;
     int decimalNumber = 0;
     while (number > 0)
@@ -46,5 +66,5 @@ int itc_rev_covert_num(long long number, int ss)
         number /= 10;
         pOfss *= ss;
     }
-    return decimalNumber;
+    return decimalNumber * multiplier;
 }
