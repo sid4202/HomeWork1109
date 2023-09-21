@@ -5,6 +5,9 @@ using namespace std;
 
 int itc_second_max_num(long long number)
 {
+    if (number < 0)
+        number *= -1;
+    
     if(number / 10 == 0)
         return -1;
 
@@ -28,6 +31,9 @@ int itc_second_max_num(long long number)
 
 int itc_second_simple_max_num(long long number)
 {
+    if (number < 0)
+        number *= -1;
+    
     if(number / 10 == 0)
         return -1;
 
@@ -54,6 +60,13 @@ int itc_second_simple_max_num(long long number)
 
 long long itc_bin_num(long long number)
 {
+    int multiplier = 1;
+
+    if (number < 0) {
+        multiplier *= -1;
+        number *= -1;
+    }
+    
     long long binNumber = 1;
     while(number > 0)
     {
@@ -71,11 +84,18 @@ long long itc_bin_num(long long number)
         reversedNumber += lastDigit;
         binNumber /= 10;
     }
-    return reversedNumber / 10;
+    return (reversedNumber / 10) * multiplier;
 }
 
 long long itc_oct_num(long long number)
 {
+    int multiplier = 1;
+
+    if (number < 0) {
+        multiplier *= -1;
+        number *= -1;
+    }
+    
     long long octNumber = 1;
     while(number > 0)
     {
@@ -93,11 +113,18 @@ long long itc_oct_num(long long number)
         reversedNumber += lastDigit;
         octNumber /= 10;
     }
-    return reversedNumber / 10;
+    return (reversedNumber / 10) * multiplier;
 }
 
 int itc_rev_bin_num(long long number)
 {
+    int multiplier = 1;
+
+    if (number < 0) {
+        multiplier *= -1;
+        number *= -1;
+    }
+    
     long long pOf2 = 1;
     int decimalNumber = 0;
     while (number > 0)
@@ -106,5 +133,5 @@ int itc_rev_bin_num(long long number)
         number /= 10;
         pOf2 *= 2;
     }
-    return decimalNumber;
+    return decimalNumber * multiplier;
 }
