@@ -17,7 +17,7 @@ int itc_rev_oct_num(long long number)
         number /= 10;
         pOf8 *= 8;
     }
-    return decimalNumber * multipier;
+    return decimalNumber * multiplier;
 }
 
 int itc_covert_num(long long number, int ss)
