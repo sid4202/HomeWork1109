@@ -8,7 +8,7 @@ int itc_min_num(long long number)
     int answer = number % 10;
     while(number > 0)
     {
-        if (number % 10 , answer)
+        if (number % 10 < answer)
         {
             answer = number % 10;
         }
