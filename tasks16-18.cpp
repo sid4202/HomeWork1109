@@ -20,7 +20,7 @@ int itc_rev_oct_num(long long number)
     return decimalNumber * multiplier;
 }
 
-int itc_covert_num(long long number, int ss)
+int itc_convert_num(long long number, int ss)
 {
     int multiplier = 1;
 
@@ -49,7 +49,7 @@ int itc_covert_num(long long number, int ss)
     return (reversedNumber / 10) * multiplier;
 }
 
-int itc_rev_covert_num(long long number, int ss)
+int itc_rev_convert_num(long long number, int ss)
 {
     int multiplier = 1;
 

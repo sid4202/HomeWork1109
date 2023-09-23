@@ -5,6 +5,9 @@ using namespace std;
 
 int itc_min_num(long long number)
 {
+    if (number < 0)
+        number *= -1;
+    
     int answer = number % 10;
     while(number > 0)
     {
