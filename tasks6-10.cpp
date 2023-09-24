@@ -43,6 +43,9 @@ int itc_rev_num(long long number)
 
 int itc_null_count(long long number)
 {
+    if (number == 0)
+        return 1;
+
     if (number < 0) {
         number *= -1;
     }
