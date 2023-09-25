@@ -38,7 +38,7 @@ int itc_rev_num(long long number)
         reversedNumber += lastDigit;
         number /= 10;
     }
-    return itc_len(reversedNumber * multiplier);
+    return itc_len_num(reversedNumber * multiplier);
 }
 
 int itc_null_count(long long number)
