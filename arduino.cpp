@@ -1,27 +1,31 @@
 #define ports {2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13}
+#include <SoftwareSerial.h>
 
 
-long long num_to_bin(int decimal)
+String num_to_bin(int decimal)
 {
  
     long long binNumber = 1;
     while(decimal > 0)
     {
         binNumber *= 10;
-        binNumber += number % 2;
-        number /= 2;
+        binNumber += decimal % 2;
+        decimal /= 2;
     }
-
+    
     long long reversedNumber = 0;
+    String result = "";
 
     while(binNumber > 0)
     {
         int lastDigit = binNumber % 10;
+        char digit = '0' + (int)lastDigit;
+        result += digit;
         reversedNumber *= 10;
         reversedNumber += lastDigit;
         binNumber /= 10;
     }
-    return reversedNumber / 10 * multiplier;
+    return result + '0';
 }
 
 
@@ -38,8 +42,20 @@ void setup() {
   pinMode(11, OUTPUT);
   pinMode(12, OUTPUT);
   pinMode(13, OUTPUT);
+  Serial.begin(9600);
 }
 
 void loop() {
-  for (int i = 0;i < 13
+  Serial.begin(9600);
+
+  int decimal = Serial.parseInt();
+  String binNum = num_to_bin(decimal);
+
+  Serial.print(binNum + '\n');
+  delay(1000);
+  
+  for (int i = 2; i < 13; i++)
+  {
+    
+  }
 }
