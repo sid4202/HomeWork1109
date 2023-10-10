@@ -19,13 +19,18 @@ String num_to_bin(int decimal)
     while(binNumber > 0)
     {
         int lastDigit = binNumber % 10;
-        char digit = '0' + (int)lastDigit;
-        result += digit;
         reversedNumber *= 10;
         reversedNumber += lastDigit;
         binNumber /= 10;
     }
-    return result + '0';
+    
+  while (reversedNumber > 0)
+  {
+    result += (char)((int)'0' + reversedNumber % 10);
+    reversedNumber /= 10;
+  }
+  return result.substring(0, result.length());
+  
 }
 
 
@@ -46,16 +51,17 @@ void setup() {
 }
 
 void loop() {
-  Serial.begin(9600);
 
   int decimal = Serial.parseInt();
   String binNum = num_to_bin(decimal);
 
   Serial.print(binNum + '\n');
-  delay(1000);
-  
-  for (int i = 2; i < 13; i++)
+
+  for (int i = 2; i < 2 + binNum.length(); i++)
   {
-    
+      if (binNum[i - 2] == '1')
+        digitalWrite(i, HIGH);
   }
+  
+  
 }
